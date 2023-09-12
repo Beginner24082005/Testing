@@ -1,16 +1,3 @@
-// #include<iostream>
-// using namespace std;
-// class SLL{
-// private:
-//     class node{
-//         int data;
-//         node* next;
-//     };
-// };
-// int main(){
-//     return 0;
-// }
-
 #include <iostream>
 template <typename T>
 class LinkedList {
