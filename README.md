@@ -1,6 +1,3 @@
-# Testing
-This is for testing Github
-
 #include <iostream>
 
 template <typename T>
