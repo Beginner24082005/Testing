@@ -6,7 +6,7 @@ private:
     public:
         T data;
         Node* next;
-
+        
         Node(T value) : data(value), next(nullptr) {}
     };
 
