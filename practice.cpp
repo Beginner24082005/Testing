@@ -12,7 +12,7 @@ private:
 
     Node* head;
 
-public:
+public:  
     LinkedList() : head(nullptr) {}
 
     void push_front(T value) {
