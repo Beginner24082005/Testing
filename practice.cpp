@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 template <typename T>
 class LinkedList {
 private:
@@ -6,41 +7,52 @@ private:
     public:
         T data;
         Node* next;
-        
-        Node(T value) : data(value), next(nullptr) {}
+        unsigned int count;
+        Node(T value) : data(value), next(nullptr), count(0) {}
     };
-
     Node* head;
+    Node* tail;
 
 public:  
-    LinkedList() : head(nullptr) {}
+    LinkedList() : head(nullptr), tail(nullptr) {}
 
     void push_front(T value) {
         Node* newNode = new Node(value);
-        newNode->next = head;
-        head = newNode;
+        if (head==nullptr){
+            head=newNode;
+            tail=newNode;
+        }
+        else{
+            newNode->next = head;
+            head = newNode;
+            Node* current = head->next;
+            while (current != nullptr) {
+                current->count++;
+                current = current->next;
+            }
+        }
     }
 
     void push_back(T value){
         Node* newNode = new Node(value);
         if (head == nullptr) {
             head = newNode;
+            tail = newNode;
         } else {
-            Node* current = head;
-            while (current->next != nullptr) {
-                current = current->next;
-            }
-            current->next = newNode;
+            Node* current = tail;
+            tail->next = newNode;
+            tail = newNode;
+            tail->count = current->count + 1;
         }
     }
 
     void print() {
         Node* current = head;
         while (current != nullptr) {
-            std::cout << current->data << " ";
+            cout << "Index: " << current->count << ", Data: " << current->data << " ";
             current = current->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 };
 
