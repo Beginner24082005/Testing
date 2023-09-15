@@ -50,6 +50,26 @@ public:
         }
     }
 
+    void bubbleSort(){
+        Node* current = head;
+        bool isSorted = false;
+        int swapNum = 0;
+        while (!isSorted){
+            current = head;
+            swapNum = 0;
+            while (current != tail){
+                if (current->data > current->next->data){
+                    unsigned int temp = current->data;
+                    current->data = current->next->data;
+                    current->next->data = temp;
+                    swapNum++;
+                }
+                current = current->next;
+            }
+            if (swapNum == 0) isSorted = true;
+        }
+    }
+
     void print() {
         Node* current = head;
         while (current != nullptr) {
@@ -61,17 +81,12 @@ public:
 };
 
 int main() {
-    // LinkedList<int> myList;
-    // myList.push_front(3);
-    // myList.push_front(2);
-    // myList.push_front(1);
-    // myList.push_back(4);
-    int dataArray[] = {1, 2, 3, 4};
+    int dataArray[] = {28, 6, 4, 2, 24};
     unsigned int size = sizeof(dataArray) / sizeof(dataArray[0]);
 
     LinkedList<int> myList(dataArray, size);
+    myList.bubbleSort();
     myList.print();
-
     return 0;
 }
 
