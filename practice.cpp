@@ -63,6 +63,26 @@ public:
             if (swapNum == 0) isSorted = true;
         }
     }
+    
+    void insertionSort(){
+        Node* current = head;
+        Node* sortedHead = nullptr;
+        while (current != nullptr){
+            nextNodeOfCurr = current->next;
+            if (sortedHead = nullptr || current->data <= sortedHead->data){
+                current->next = sortedHead;
+                sortedHead = current;
+                if (sortedTail == nullptr) {
+                    sortedTail = current;
+                }
+            }
+            else {
+                
+            }
+            current = current->next;
+        }
+        
+    }
 
     void print() {
         Node* current = head;
