@@ -7,8 +7,7 @@ private:
     public:
         T data;
         Node* next;
-        unsigned int count;
-        Node(T value) : data(value), next(nullptr), count(0) {}
+        Node(T value) : data(value), next(nullptr){}
     };
     Node* head;
     Node* tail;
@@ -30,10 +29,6 @@ public:
             newNode->next = head;
             head = newNode;
             Node* current = head->next;
-            while (current != nullptr) {
-                current->count++;
-                current = current->next;
-            }
         }
     }
 
@@ -46,7 +41,6 @@ public:
             Node* current = tail;
             tail->next = newNode;
             tail = newNode;
-            tail->count = current->count + 1;
         }
     }
 
@@ -73,7 +67,7 @@ public:
     void print() {
         Node* current = head;
         while (current != nullptr) {
-            cout << "Index: " << current->count << ", Data: " << current->data << " ";
+            cout << "Data: " << current->data << " ";
             current = current->next;
         }
         cout << endl;
