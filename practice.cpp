@@ -63,31 +63,38 @@ public:
             if (swapNum == 0) isSorted = true;
         }
     }
-    
+
     void insertionSort(){
         Node* current = head;
         Node* sortedHead = nullptr;
+        Node* sortedTail = nullptr;
         while (current != nullptr){
-            nextNodeOfCurr = current->next;
-            if (sortedHead = nullptr || current->data <= sortedHead->data){
+            Node* nextNodeOfCurr = current->next;
+            if (sortedHead == nullptr || current->data <= sortedHead->data){
                 current->next = sortedHead;
                 sortedHead = current;
                 if (sortedTail == nullptr) {
                     sortedTail = current;
                 }
             }
-            else {
-                
+            else{
+                Node* sortedCurrent = sortedHead;
+                while (sortedCurrent->next != nullptr && current->data >= sortedCurrent->next->data){
+                    sortedCurrent = sortedCurrent->next;
+                }
+                current->next = sortedCurrent->next;
+                sortedCurrent->next = current;
             }
-            current = current->next;
+            current = nextNodeOfCurr;
         }
-        
+        head = sortedHead;
+        tail = sortedTail->next;
     }
 
     void print() {
         Node* current = head;
         while (current != nullptr) {
-            cout << "Data: " << current->data << " ";
+            cout << current->data << " ";
             current = current->next;
         }
         cout << endl;
@@ -95,11 +102,12 @@ public:
 };
 
 int main() {
-    int dataArray[] = {28, 6, 4, 2, 24};
+    int dataArray[] = {28, 29, 27, 6, 7, 4, 2, 24};
     unsigned int size = sizeof(dataArray) / sizeof(dataArray[0]);
 
     LinkedList<int> myList(dataArray, size);
-    myList.bubbleSort();
+    //myList.bubbleSort();
+    myList.insertionSort();
     myList.print();
     return 0;
 }
