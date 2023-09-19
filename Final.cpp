@@ -1,31 +1,3 @@
-// #include<iostream>
-// using namespace std;
-// int main(){
-//     int N = 0;
-//     cout << "Input N: "<<endl;
-//     cin >> N;
-//     int K = N;
-//     char arr[N][N];
-//     for (int i = N-1; i >= 0; i--){
-//         for (int j = 0; j < K; j++){
-//             arr[i][j] = '*';
-//         }
-//         for (int k = K; k < N; k++){
-//             arr[i][k] = ' ';
-//         }
-//         K--;
-//     }
-//     for (int i = 0; i < N; i++){
-//         for (int j = 0; j < N; j++){
-//             cout << arr[i][j] <<" ";
-//         }
-//         cout << endl;
-//     }
-//     return 0;
-// }
-
-//Second exercise will be in the final exam.
-
 #include <iostream>
 using namespace std;
 
